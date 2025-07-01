@@ -1,34 +1,28 @@
-//
-// Created by gerw on 8/20/24.
-//
-
-#ifndef QT_PROGRAMMING_2024_ITEM_H
-#define QT_PROGRAMMING_2024_ITEM_H
+#ifndef ITEM_H
+#define ITEM_H
 
 #include <QGraphicsItem>
-#include <QPainter>
+#include <QGraphicsPixmapItem>
+#include <QString>
 
 class Item : public QGraphicsItem {
 public:
-    explicit Item(QGraphicsItem *parent, const QString &pixmapPath);
+    explicit Item(QGraphicsItem* parent = nullptr, const QString& pixmapPath = "");
 
-    [[nodiscard]] QRectF boundingRect() const override {
-        if (pixmapItem != nullptr) {
-            return this->pixmapItem->boundingRect();
-        }
-        // Empty rectangle makes the empty item not selectable and not collider
-        return {};
-    }
+    // 设置贴图
+    void setPixmap(const QPixmap& pixmap);
 
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-               QWidget *widget) override {
-        // Draw nothing as it is an empty item
-        // Its pixmapItem is automatically handled by children's paint()
-    }
+    // 获取内部图像项（例如用于判断尺寸、位置等）
+    QGraphicsPixmapItem* getPixmapItem() const;
+
+    // 基础碰撞范围（由 pixmap 决定）
+    [[nodiscard]] QRectF boundingRect() const override;
+
+    // 我们不自己绘图，靠 QGraphicsPixmapItem 显示图像
+    void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override {}
 
 protected:
-    QGraphicsPixmapItem *pixmapItem{};
+    QGraphicsPixmapItem* pixmapItem = nullptr;
 };
 
-
-#endif //QT_PROGRAMMING_2024_ITEM_H
+#endif // ITEM_H

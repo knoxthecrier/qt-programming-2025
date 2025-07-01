@@ -1,76 +1,48 @@
-//
-// Created by gerw on 8/20/24.
-//
-
-#include <QDebug>
 #include "BattleScene.h"
-#include "../Items/Characters/Link.h"
+#include <QKeyEvent>
 #include "../Items/Maps/Battlefield.h"
-#include "../Items/Armors/FlamebreakerArmor.h"
 
-BattleScene::BattleScene(QObject *parent) : Scene(parent) {
-    // This is useful if you want the scene to have the exact same dimensions as the view
+BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     setSceneRect(0, 0, 1280, 720);
+
     map = new Battlefield();
-    character = new Link();
-    spareArmor = new FlamebreakerArmor();
     addItem(map);
-    addItem(character);
-    addItem(spareArmor);
     map->scaleToFitScene(this);
-    character->setPos(map->getSpawnPos());
-    spareArmor->unmount();
-    spareArmor->setPos(sceneRect().left() + (sceneRect().right() - sceneRect().left()) * 0.75, map->getFloorHeight());
+
+    player1 = new SimpleCharacter(":/Characters/Items/Characters/c1stand.png",
+                                  ":/Characters/Items/Characters/c1crouch.png");
+    addItem(player1);
+    player1->setPos(map->getSpawnPos());
+
+    player1->setWeapon(WeaponType::Fist);
 }
 
 void BattleScene::processInput() {
-    Scene::processInput();
-    if (character != nullptr) {
-        character->processInput();
+    if (player1) player1->processInput();
+}
+
+void BattleScene::keyPressEvent(QKeyEvent* event) {
+    if (!player1) return;
+
+    switch (event->key()) {
+    case Qt::Key_A: player1->setLeftDown(true); break;
+    case Qt::Key_D: player1->setRightDown(true); break;
+    case Qt::Key_S: player1->setCrouching(true); break;
+    case Qt::Key_W: player1->startJump(); break;
+    case Qt::Key_J: player1->setPickDown(true); break;
+    default: Scene::keyPressEvent(event);
     }
 }
 
-void BattleScene::keyPressEvent(QKeyEvent *event) {
-    switch (event->key()) {
-        case Qt::Key_A:
-            if (character != nullptr) {
-                character->setLeftDown(true);
-            }
-            break;
-        case Qt::Key_D:
-            if (character != nullptr) {
-                character->setRightDown(true);
-            }
-            break;
-        case Qt::Key_J:
-            if (character != nullptr) {
-                character->setPickDown(true);
-            }
-            break;
-        default:
-            Scene::keyPressEvent(event);
-    }
-}
+void BattleScene::keyReleaseEvent(QKeyEvent* event) {
+    if (!player1) return;
 
-void BattleScene::keyReleaseEvent(QKeyEvent *event) {
     switch (event->key()) {
-        case Qt::Key_A:
-            if (character != nullptr) {
-                character->setLeftDown(false);
-            }
-            break;
-        case Qt::Key_D:
-            if (character != nullptr) {
-                character->setRightDown(false);
-            }
-            break;
-        case Qt::Key_J:
-            if (character != nullptr) {
-                character->setPickDown(false);
-            }
-            break;
-        default:
-            Scene::keyReleaseEvent(event);
+    case Qt::Key_A: player1->setLeftDown(false); break;
+    case Qt::Key_D: player1->setRightDown(false); break;
+    case Qt::Key_S: player1->setCrouching(false); break;
+    case Qt::Key_J: player1->setPickDown(false); break;
+    default: Scene::keyReleaseEvent(event);
     }
 }
 
@@ -79,45 +51,16 @@ void BattleScene::update() {
 }
 
 void BattleScene::processMovement() {
-    Scene::processMovement();
-    if (character != nullptr) {
-        character->setPos(character->pos() + character->getVelocity() * (double) deltaTime);
+    if (player1 && !player1->isCrouching()) {
+        QPointF pos = player1->pos();
+        QPointF velocity = player1->getVelocity();
+
+        pos.rx() += velocity.x() * deltaTime;
+        player1->applyVerticalMovement(deltaTime, map->getFloorHeight());
+        player1->setX(pos.x());
     }
 }
 
 void BattleScene::processPicking() {
-    Scene::processPicking();
-    if (character->isPicking()) {
-        auto mountable = findNearestUnmountedMountable(character->pos(), 100.);
-        if (mountable != nullptr) {
-            spareArmor = dynamic_cast<Armor *>(pickupMountable(character, mountable));
-        }
-    }
-}
-
-Mountable *BattleScene::findNearestUnmountedMountable(const QPointF &pos, qreal distance_threshold) {
-    Mountable *nearest = nullptr;
-    qreal minDistance = distance_threshold;
-
-    for (QGraphicsItem *item: items()) {
-        if (auto mountable = dynamic_cast<Mountable *>(item)) {
-            if (!mountable->isMounted()) {
-                qreal distance = QLineF(pos, item->pos()).length();
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    nearest = mountable;
-                }
-            }
-        }
-    }
-
-    return nearest;
-}
-
-Mountable *BattleScene::pickupMountable(Character *character, Mountable *mountable) {
-    // Limitation: currently only supports armor
-    if (auto armor = dynamic_cast<Armor *>(mountable)) {
-        return character->pickupArmor(armor);
-    }
-    return nullptr;
+    // TODO: 实现拾取逻辑（下一步可加武器掉落物）
 }

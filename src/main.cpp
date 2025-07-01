@@ -2,8 +2,10 @@
 #include "MyGame.h"
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
-    MyGame myGame;
-    myGame.show();
-    return QApplication::exec();
+    QApplication app(argc, argv);
+
+    MyGame window;
+    window.show();
+
+    return app.exec();
 }
