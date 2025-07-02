@@ -8,6 +8,7 @@ public:
     explicit Battlefield(QGraphicsItem* parent = nullptr);
 
     qreal getFloorHeight() override;
+
 };
 
 #endif // BATTLEFIELD_H
