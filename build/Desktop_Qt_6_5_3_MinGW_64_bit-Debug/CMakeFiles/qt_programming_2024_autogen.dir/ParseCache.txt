@@ -21,6 +21,7 @@ D:/GitHub Files/qt-programming-2025/src/MyGame.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Item.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Maps/Map.h
+ mdp:D:/GitHub Files/qt-programming-2025/src/Items/Platform.h
  mdp:D:/GitHub Files/qt-programming-2025/src/MyGame.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Scenes/BattleScene.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Scenes/Scene.h
@@ -168,6 +169,7 @@ D:/GitHub Files/qt-programming-2025/src/MyGame.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsPixmapItem
+ mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsRectItem
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsView
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow
@@ -389,6 +391,7 @@ D:/GitHub Files/qt-programming-2025/src/Scenes/BattleScene.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Item.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Items/Maps/Map.h
+ mdp:D:/GitHub Files/qt-programming-2025/src/Items/Platform.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Scenes/BattleScene.h
  mdp:D:/GitHub Files/qt-programming-2025/src/Scenes/Scene.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtCore/QString
@@ -525,6 +528,7 @@ D:/GitHub Files/qt-programming-2025/src/Scenes/BattleScene.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsItem
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsPixmapItem
+ mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsRectItem
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsScene
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgraphicsitem.h
  mdp:D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgraphicsscene.h
@@ -1060,6 +1064,7 @@ D:/GitHub Files/qt-programming-2025/src/Items/Characters/Character.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/Mountable.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/Characters/Link.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/HeadEquipments/CapOfTheHero.cpp
+D:/GitHub Files/qt-programming-2025/src/Items/Platform.h
 D:/GitHub Files/qt-programming-2025/src/Items/HeadEquipments/HeadEquipment.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/Item.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h
@@ -1069,3 +1074,4 @@ D:/GitHub Files/qt-programming-2025/src/Scenes/BattleScene.cpp
 D:/GitHub Files/qt-programming-2025/src/Scenes/Scene.cpp
 D:/GitHub Files/qt-programming-2025/src/main.cpp
 D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.cpp
+D:/GitHub Files/qt-programming-2025/src/Items/Platform.cpp

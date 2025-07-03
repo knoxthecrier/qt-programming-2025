@@ -9,6 +9,7 @@
 	"INCLUDE_DIR" : "D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/include",
 	"INPUTS" : 
 	[
+		"D:/GitHub Files/qt-programming-2025/assets/Items/Background/newBackground.png",
 		"D:/GitHub Files/qt-programming-2025/assets/Items/Characters/c1crouch.png",
 		"D:/GitHub Files/qt-programming-2025/assets/Items/Characters/c2stand.png",
 		"D:/GitHub Files/qt-programming-2025/assets/Items/Characters/c2crouch.png",

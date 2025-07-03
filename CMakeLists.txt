@@ -28,7 +28,9 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/Maps/Battlefield.cpp
         src/Items/Maps/Battlefield.h
         src/Items/Characters/SimpleCharacter.h
-        src/Items/Characters/SimpleCharacter.cpp)
+        src/Items/Characters/SimpleCharacter.cpp
+        src/Items/Platform.h
+        src/Items/Platform.cpp)
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

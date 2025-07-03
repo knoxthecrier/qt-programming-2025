@@ -12,4 +12,7 @@
         <file>Items/Characters/c2crouch.png</file>
         <file>Items/Characters/c2stand.png</file>
     </qresource>
+    <qresource prefix="/Background">
+        <file>Items/Background/newBackground.png</file>
+    </qresource>
 </RCC>

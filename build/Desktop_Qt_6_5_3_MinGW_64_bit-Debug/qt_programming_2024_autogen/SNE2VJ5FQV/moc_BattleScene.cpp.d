@@ -3,6 +3,7 @@ D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/q
   D:/GitHub\ Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Item.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Maps/Map.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/Platform.h \
   D:/GitHub\ Files/qt-programming-2025/src/Scenes/Scene.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QString \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QTimer \
@@ -138,6 +139,7 @@ D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/q
   D:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsItem \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+  D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsRectItem \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgraphicsitem.h \
   D:/Qt/6.5.3/mingw_64/include/QtWidgets/qgraphicsscene.h \

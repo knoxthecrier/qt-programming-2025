@@ -1,10 +1,11 @@
 #ifndef BATTLESCENE_H
 #define BATTLESCENE_H
 
+#include "../Items/Platform.h"
 #include "Scene.h"
 #include "../Items/Maps/Map.h"
 #include "../Items/Characters/SimpleCharacter.h"
-
+#include <QGraphicsScene>
 class BattleScene : public Scene {
     Q_OBJECT
 
@@ -15,6 +16,7 @@ public:
     void processMovement() override;
     void processPicking() override;
 
+    void createPlatforms();  // 用于创建平台
 protected slots:
     void update() override;
 
@@ -25,6 +27,7 @@ protected:
 private:
     Map* map;
     SimpleCharacter* player1;
+    void initPlatforms();  // 初始化平台
 };
 
 #endif // BATTLESCENE_H

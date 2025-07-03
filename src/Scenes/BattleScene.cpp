@@ -1,7 +1,9 @@
 #include "BattleScene.h"
 #include <QKeyEvent>
 #include "../Items/Maps/Battlefield.h"
-
+#include "../Items/Platform.h"
+#include <QGraphicsView>
+#include <QGraphicsScene>
 BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     setSceneRect(0, 0, 1280, 720);
 
@@ -15,6 +17,9 @@ BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     player1->setPos(map->getSpawnPos());
 
     player1->setWeapon(WeaponType::Fist);
+
+    // 初始化平台
+    initPlatforms();
 }
 
 void BattleScene::processInput() {
@@ -63,4 +68,25 @@ void BattleScene::processMovement() {
 
 void BattleScene::processPicking() {
     // TODO: 实现拾取逻辑（下一步可加武器掉落物）
+}
+
+
+
+void BattleScene::initPlatforms() {
+    // 假设场景宽度为1280，中心线在x=640
+    qreal centerX = 640;  // 场景中心X坐标
+    qreal platformWidth = 410;
+    qreal platformHeight = 20;  // 平台高度
+
+    // 创建平台1 (左侧)
+    Platform* platform1 = new Platform(centerX - 360 - platformWidth / 2, 360, platformWidth, platformHeight);
+    addItem(platform1);
+
+    // 创建平台2 (右侧)
+    Platform* platform2 = new Platform(centerX + 360 - platformWidth / 2, 360, platformWidth, platformHeight);
+    addItem(platform2);
+
+    // 创建平台3 (在平台1和平台2之上)
+    Platform* platform3 = new Platform(centerX - platformWidth / 2, 160, platformWidth, platformHeight);
+    addItem(platform3);
 }

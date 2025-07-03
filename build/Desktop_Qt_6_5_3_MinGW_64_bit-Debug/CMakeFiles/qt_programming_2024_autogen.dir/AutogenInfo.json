@@ -249,6 +249,12 @@
 			null
 		],
 		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Platform.h",
+			"MU",
+			"7O23G427QC/moc_Platform.cpp",
+			null
+		],
+		[
 			"D:/GitHub Files/qt-programming-2025/src/MyGame.h",
 			"MU",
 			"UVLADIE3JM/moc_MyGame.cpp",
@@ -348,6 +354,11 @@
 		],
 		[
 			"D:/GitHub Files/qt-programming-2025/src/Items/Maps/Map.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Platform.cpp",
 			"MU",
 			null
 		],
