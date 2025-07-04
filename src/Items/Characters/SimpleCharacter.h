@@ -1,6 +1,7 @@
 #ifndef SIMPLECHARACTER_H
 #define SIMPLECHARACTER_H
 #include "../Item.h"
+#include "../Platform.h"
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
 

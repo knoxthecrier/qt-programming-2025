@@ -27,7 +27,9 @@ protected:
 private:
     Map* map;
     SimpleCharacter* player1;
-    void initPlatforms();  // 初始化平台
+    Platform* platform1;
+    Platform* platform2;
+    Platform* platform3;
 };
 
 #endif // BATTLESCENE_H

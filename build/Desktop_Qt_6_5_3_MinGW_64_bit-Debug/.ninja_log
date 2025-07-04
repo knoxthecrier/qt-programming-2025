@@ -1,42 +1,66 @@
 # ninja log v6
-34	221	7732393067580974	qt_programming_2024_autogen/timestamp	7217d6c31417a494
-213	1877	7732395478596225	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp.obj	d998ea1737304947
-38	213	7732395478449516	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-34	221	7732393067580974	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
-34	221	7732393067580974	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
-34	221	7732393067580974	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+27	144	7732407169975055	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
+12	205	7733223416249603	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+144	1295	7732407170102036	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp.obj	d998ea1737304947
+12	205	7733223416249603	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+12	205	7733223416249603	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+12	205	7733223416249603	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+27	144	7732407169975055	qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
 781	907	7726581043069205	CMakeFiles/qt_programming_2024.dir/src/Items/Mountable.cpp.obj	d2361035d0a0db95
-38	213	7732395478449516	qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
 694	8795	7730445919229207	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/Link.cpp.obj	3b41d1212d61eda9
 684	8799	7730445919142671	CMakeFiles/qt_programming_2024.dir/src/Items/Item.cpp.obj	61829e166269658a
 779	8816	7730445920103061	CMakeFiles/qt_programming_2024.dir/src/Items/Armors/FlamebreakerArmor.cpp.obj	811459955c516032
-704	8731	7730445919333423	CMakeFiles/qt_programming_2024.dir/src/Items/HeadEquipments/HeadEquipment.cpp.obj	c15d105fa1879c0a
 710	8709	7730445919402115	CMakeFiles/qt_programming_2024.dir/src/Items/LegEquipments/LegEquipment.cpp.obj	7a1eb830b3e8b2ee
+704	8731	7730445919333423	CMakeFiles/qt_programming_2024.dir/src/Items/HeadEquipments/HeadEquipment.cpp.obj	c15d105fa1879c0a
 728	8837	7730445919572743	CMakeFiles/qt_programming_2024.dir/src/Items/HeadEquipments/CapOfTheHero.cpp.obj	b040cb31705058c5
 698	8848	7730445919288836	CMakeFiles/qt_programming_2024.dir/src/Items/Armors/Armor.cpp.obj	1c77a4ced871f0d6
 749	8839	7730445919785958	CMakeFiles/qt_programming_2024.dir/src/Scenes/Scene.cpp.obj	d6ea6666e0d793b1
 742	8835	7730445919714651	CMakeFiles/qt_programming_2024.dir/src/Items/LegEquipments/WellWornTrousers.cpp.obj	723988c67e641d8d
 689	9144	7730445919191444	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/Character.cpp.obj	f3052839f1e3ac1d
-574	3928	7732359016635563	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
 735	8875	7730445919638944	CMakeFiles/qt_programming_2024.dir/src/Items/Armors/OldShirt.cpp.obj	9a70895eaa50b70c
-554	4225	7732359016427070	CMakeFiles/qt_programming_2024.dir/src/main.cpp.obj	22d0c64d1f2d0645
+205	1949	7733223418183878	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+524	3224	7733188403029733	CMakeFiles/qt_programming_2024.dir/src/main.cpp.obj	22d0c64d1f2d0645
 566	3873	7732359016550690	CMakeFiles/qt_programming_2024.dir/src/Items/Maps/Map.cpp.obj	4af9bbf3412d07d8
-550	4291	7732359016387069	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/mocs_compilation.cpp.obj	4bd969f00956b642
-558	4187	7732359016467085	CMakeFiles/qt_programming_2024.dir/src/MyGame.cpp.obj	9e621e8007664315
+519	3207	7733188402979705	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/mocs_compilation.cpp.obj	4bd969f00956b642
 21	713	7732387788416441	build.ninja	5be7a5ded51773c5
-222	2398	7732393069460844	CMakeFiles/qt_programming_2024.dir/src/Scenes/BattleScene.cpp.obj	97d9d54ef2588f76
+528	3126	7733188403068255	CMakeFiles/qt_programming_2024.dir/src/MyGame.cpp.obj	9e621e8007664315
+211	2166	7733188567571039	CMakeFiles/qt_programming_2024.dir/src/Scenes/BattleScene.cpp.obj	97d9d54ef2588f76
 211	2025	7732389860246928	CMakeFiles/qt_programming_2024.dir/src/Items/Maps/Battlefield.cpp.obj	41ec62eaf980fa8f
-1877	2250	7732395495226141	qt_programming_2024.exe	1909c21d52254aea
-580	3908	7732359016695560	CMakeFiles/qt_programming_2024.dir/src/Items/Platform.cpp.obj	4974b8d88df55681
-29	151	7732405248322199	qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-29	151	7732405248322199	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-151	1282	7732405248453337	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp.obj	d998ea1737304947
-1283	1641	7732405259765967	qt_programming_2024.exe	1909c21d52254aea
-26	142	7732406445621060	qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-26	142	7732406445621060	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-143	1274	7732406445750641	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp.obj	d998ea1737304947
-1274	1650	7732406457058133	qt_programming_2024.exe	1909c21d52254aea
-27	144	7732407169975055	qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-27	144	7732407169975055	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp	874c9b55c1b64604
-144	1295	7732407170102036	CMakeFiles/qt_programming_2024.dir/qt_programming_2024_autogen/GBFAFXFCVO/qrc_assets.cpp.obj	d998ea1737304947
-1295	1664	7732407181610445	qt_programming_2024.exe	1909c21d52254aea
+1949	2282	7733223435623023	qt_programming_2024.exe	1909c21d52254aea
+852	6167	7733181811062283	CMakeFiles/qt_programming_2024.dir/src/Items/Platform.cpp.obj	4974b8d88df55681
+20	194	7733223775053755	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+20	194	7733223775053755	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+20	194	7733223775053755	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+20	194	7733223775053755	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+194	1781	7733223776800974	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1782	2088	7733223792667438	qt_programming_2024.exe	1909c21d52254aea
+11	184	7733224918187348	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+11	184	7733224918187348	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+11	184	7733224918187348	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+11	184	7733224918187348	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+185	1828	7733224919921111	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1828	2153	7733224936352837	qt_programming_2024.exe	1909c21d52254aea
+11	177	7733225152892185	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+11	177	7733225152892185	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+11	177	7733225152892185	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+11	177	7733225152892185	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+178	1844	7733225154566243	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1845	2150	7733225171228826	qt_programming_2024.exe	1909c21d52254aea
+30	202	7733225708747769	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+30	202	7733225708747769	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+30	202	7733225708747769	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+30	202	7733225708747769	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+202	1892	7733225710478860	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1893	2228	7733225727382073	qt_programming_2024.exe	1909c21d52254aea
+10	174	7733229274189779	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+10	174	7733229274189779	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+10	174	7733229274189779	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+10	174	7733229274189779	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+175	1777	7733229275837553	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1777	2110	7733229291866178	qt_programming_2024.exe	1909c21d52254aea
+9	164	7733229745064514	qt_programming_2024_autogen/timestamp	7217d6c31417a494
+9	164	7733229745064514	qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+9	164	7733229745064514	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/timestamp	7217d6c31417a494
+9	164	7733229745064514	D:/GitHub Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/mocs_compilation.cpp	7217d6c31417a494
+164	1740	7733229746617254	CMakeFiles/qt_programming_2024.dir/src/Items/Characters/SimpleCharacter.cpp.obj	8c593240a45d47ad
+1740	2051	7733229762374393	qt_programming_2024.exe	1909c21d52254aea

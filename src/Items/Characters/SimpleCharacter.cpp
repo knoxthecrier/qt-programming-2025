@@ -1,7 +1,7 @@
 #include "SimpleCharacter.h"
 #include <QTransform>
 #include <QPixmap>
-
+#include "../Platform.h"
 SimpleCharacter::SimpleCharacter(const QString& standPath,
                                  const QString& crouchPath,
                                  QGraphicsItem* parent)
@@ -62,21 +62,106 @@ void SimpleCharacter::startJump() {
         verticalVelocity = jumpVelocity;
     }
 }
+void SimpleCharacter::applyVerticalMovement(qreal deltaTime, qreal floorY) {
+    verticalVelocity += gravity * deltaTime;  // 应用重力加速度
+    qreal newY = pos().y() + verticalVelocity * deltaTime;  // 计算新的 Y 坐标
 
+    bool collidedWithPlatform = false;  // 标记是否与平台发生碰撞
+
+    // 遍历所有碰撞物体，检测是否是平台
+    QList<QGraphicsItem*> collidingItems = this->collidingItems();
+    for (auto* item : collidingItems) {
+        if (auto* platform = dynamic_cast<Platform*>(item)) {
+            qDebug() << "Collided with Platform at Y: " << platform->y();
+            if ( newY > platform->y()-1){
+            // 检查角色是否与平台接触（判断角色底部是否与平台顶部重叠）
+
+                // 调整角色的 Y 坐标，使其站在平台上
+                newY = platform->y() ;
+                verticalVelocity = 0;  // 重置垂直速度
+                isOnGround = true;     // 标记角色在地面上
+                isJumping = false;     // 停止跳跃
+                collidedWithPlatform = true;
+                qDebug() << "Vertical Velocity: " << verticalVelocity;
+                break;  // 如果已经碰到平台，跳出循环
+            }
+        }
+    }
+    // 如果没有与任何平台碰撞，继续下落
+    if (!collidedWithPlatform && newY >= floorY) {
+        newY = floorY;  // 角色到达地面
+        verticalVelocity = 0.0;  // 重置垂直速度
+        isOnGround = true;     // 标记角色在地面上
+        isJumping = false;     // 停止跳跃
+    }
+
+    // 更新角色的 Y 坐标
+    setPos(pos().x(), newY);  // 更新角色的位置
+}
+
+/*
 void SimpleCharacter::applyVerticalMovement(qreal deltaTime, qreal floorY) {
     verticalVelocity += gravity * deltaTime;
     qreal newY = pos().y() + verticalVelocity * deltaTime;
 
-    if (newY >= floorY) {
+    // 获取碰撞的物体
+    QList<QGraphicsItem*> collidingItems = this->collidingItems();
+    bool collidedWithPlatform = false;
+
+    // 遍历碰撞物体
+    // 每个平台有它的X位置和宽度
+
+
+
+    // 检测与平台1的碰撞
+    if (newY + boundingRect().height() <= 360 && newY + boundingRect().height() >= 0) {
+        // 检查 X 坐标是否重叠
+        if (pos().x() + boundingRect().width() > platform1X && pos().x() < platform1X + platformWidth) {
+            newY = 360 - boundingRect().height();  // 角色站在平台1上
+            verticalVelocity = 0;  // 重置垂直速度
+            isOnGround = true;     // 标记角色在地面上
+            isJumping = false;     // 停止跳跃
+            collidedWithPlatform = true;
+        }
+    }
+
+    // 检测与平台2的碰撞
+    else if (newY + boundingRect().height() <= 360 && newY + boundingRect().height() >= 0) {
+        // 检查 X 坐标是否重叠
+        if (pos().x() + boundingRect().width() > platform2X && pos().x() < platform2X + platformWidth) {
+            newY = 360 - boundingRect().height();  // 角色站在平台2上
+            verticalVelocity = 0;  // 重置垂直速度
+            isOnGround = true;     // 标记角色在地面上
+            isJumping = false;     // 停止跳跃
+            collidedWithPlatform = true;
+        }
+    }
+
+    // 检测与平台3的碰撞
+    else if (newY + boundingRect().height() <= 160 && newY + boundingRect().height() >= 0) {
+        // 检查 X 坐标是否重叠
+        if (pos().x() + boundingRect().width() > platform3X && pos().x() < platform3X + platformWidth) {
+            newY = 160 - boundingRect().height();  // 角色站在平台3上
+            verticalVelocity = 0;  // 重置垂直速度
+            isOnGround = true;     // 标记角色在地面上
+            isJumping = false;     // 停止跳跃
+            collidedWithPlatform = true;
+        }
+    }
+
+
+    // 如果没有碰撞到平台，继续下落
+    if (!collidedWithPlatform && newY >= floorY) {
         newY = floorY;
         verticalVelocity = 0.0;
         isOnGround = true;
         isJumping = false;
     }
 
-    setPos(pos().x(), newY);
+    setPos(pos().x(), newY);  // 更新角色的位置
 }
 
+*/
 void SimpleCharacter::processInput() {
     velocity = QPointF(0, 0);
     const int moveSpeed = 300;
