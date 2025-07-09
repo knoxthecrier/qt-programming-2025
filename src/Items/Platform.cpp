@@ -11,8 +11,9 @@ Platform::Platform(qreal x, qreal y, qreal width, qreal height)
     setPos(x, y);  // 设置平台的位置（x, y）
 
     // 默认平台颜色为灰色
-    setBrush(QBrush(Qt::gray));
-    setPen(QPen(Qt::black));  // 设置平台的边框为黑色
+    /*setBrush(QBrush(Qt::gray));
+    setPen(QPen(Qt::black)); // 设置平台的边框为黑色*/
+    setPen(QPen(Qt::transparent));  // 设置平台的边框为透明
 }
 
 

@@ -21,8 +21,7 @@ public:
     // 角色行为
     void setLeftDown(bool down);
     void setRightDown(bool down);
-    void setPickDown(bool down);
-    void setCrouching(bool down);
+    void setCrouchAndPick(bool down);
     void startJump();
 
     // 运动状态

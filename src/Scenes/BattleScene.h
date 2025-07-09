@@ -27,6 +27,7 @@ protected:
 private:
     Map* map;
     SimpleCharacter* player1;
+    SimpleCharacter* player2;
     Platform* platform1;
     Platform* platform2;
     Platform* platform3;

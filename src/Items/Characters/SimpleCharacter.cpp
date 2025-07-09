@@ -21,11 +21,9 @@ void SimpleCharacter::setRightDown(bool down) {
     rightDown = down;
 }
 
-void SimpleCharacter::setPickDown(bool down) {
-    pickDown = down;
-}
 
-void SimpleCharacter::setCrouching(bool down) {
+
+void SimpleCharacter::setCrouchAndPick(bool down) {
     if (isJumping) {
         // 如果正在跳跃，不允许下蹲
         return;
@@ -35,6 +33,9 @@ void SimpleCharacter::setCrouching(bool down) {
         crouching = down;
         updatePixmap();
     }
+    // 拾取检测只在按下的“瞬间”触发
+    picking = (!lastPickDown && down);
+    lastPickDown = down;
 }
 
 void SimpleCharacter::updatePixmap() {
