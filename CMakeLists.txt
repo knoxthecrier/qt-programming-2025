@@ -30,7 +30,29 @@ add_executable(qt_programming_2024 src/main.cpp
         src/Items/Characters/SimpleCharacter.h
         src/Items/Characters/SimpleCharacter.cpp
         src/Items/Platform.h
-        src/Items/Platform.cpp)
+        src/Items/Platform.cpp
+        src/Items/DropItem.h
+        src/Items/DropItem.cpp
+        src/Items/Weapon.h
+        src/Items/Weapons/Ball.h
+        src/Items/Weapons/Fist.h
+        src/Items/Weapons/Knife.h
+        src/Items/Weapons/Rifle.h
+        src/Items/Weapons/Sniper.h
+        src/Items/Consumable.h
+        src/Items/Consumables/Bandage.h
+        src/Items/Consumables/Medkit.h
+        src/Items/Consumables/Adrenaline.h
+        src/Items/Armor.h
+        src/Items/Armors/LightArmor.h
+        src/Items/Armors/HeavyArmor.h
+        src/Items/WeaponType.h
+        src/Items/WeaponFactory.h
+        src/Items/ConsumableType.h
+        src/Items/ArmorType.h
+        src/Items/ConsumableFactory.h
+        src/Items/ArmorFactory.h
+    )
 target_link_libraries(qt_programming_2024
         Qt::Core
         Qt::Gui

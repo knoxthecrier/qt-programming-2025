@@ -1,9 +1,17 @@
 D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/UVLADIE3JM/moc_MyGame.cpp: D:/GitHub\ Files/qt-programming-2025/src/MyGame.h \
   D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/Armor.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/ArmorType.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/Consumable.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/ConsumableType.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/DropItem.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Item.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Maps/Map.h \
   D:/GitHub\ Files/qt-programming-2025/src/Items/Platform.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/Weapon.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/WeaponType.h \
+  D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Fist.h \
   D:/GitHub\ Files/qt-programming-2025/src/Scenes/BattleScene.h \
   D:/GitHub\ Files/qt-programming-2025/src/Scenes/Scene.h \
   D:/Qt/6.5.3/mingw_64/include/QtCore/QString \

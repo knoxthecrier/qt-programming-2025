@@ -2,8 +2,10 @@
 #include <QKeyEvent>
 #include "../Items/Maps/Battlefield.h"
 #include "../Items/Platform.h"
+#include "../Items/DropItem.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QRandomGenerator>
 BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     setSceneRect(0, 0, 1280, 720);
 
@@ -21,8 +23,9 @@ BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     player1->setPos(map->getSpawnPos());
     player2->setPos(map->getSpawnPos() + QPointF(200, 0));  // 右边一点出生
 
-    player1->setWeapon(WeaponType::Fist);
-    player2->setWeapon(WeaponType::Fist);
+    player1->setWeapon(new Fist());  // 给 player1 设置拳头
+    player2->setWeapon(new Fist());  // 给 player2 设置拳头
+
 
     qreal centerX = 640;  // 场景中心X坐标
     qreal platformWidth = 410;
@@ -39,6 +42,11 @@ BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     // 创建平台3 (在平台1和平台2之上)
     platform3 = new Platform(centerX - platformWidth / 2, 160, platformWidth, platformHeight);
     addItem(platform3);
+
+    // 定时器定期调用 spawnRandomDrop()
+    QTimer* dropTimer = new QTimer(this);
+    connect(dropTimer, &QTimer::timeout, this, &BattleScene::spawnRandomDrop);
+    dropTimer->start(6000);  // 每 6 秒生成一个掉落物
 }
 
 void BattleScene::processInput() {
@@ -87,7 +95,13 @@ void BattleScene::keyReleaseEvent(QKeyEvent* event) {
 }
 
 void BattleScene::update() {
+
     Scene::update();
+
+    // 让所有掉落物下落
+    for (DropItem* drop : drops) {
+        drop->fall(deltaTime);  // 调用掉落物下落
+    }
 }
 
 void BattleScene::processMovement() {
@@ -122,8 +136,30 @@ void BattleScene::processMovement() {
 
 
 void BattleScene::processPicking() {
-    // TODO: 实现拾取逻辑（下一步可加武器掉落物）
+    for (int i = 0; i < drops.size(); ++i) {  // 使用下标访问
+        DropItem* drop = drops[i];
+        for (SimpleCharacter* player : {player1, player2}) {
+            if (player->isPicking() && player->collidesWithItem(drop)) {
+                drop->applyTo(player);  // 应用掉落物效果
+                removeItem(drop);
+                delete drop;
+                drops.removeAt(i);  // 使用 removeAt 删除元素
+                break;
+            }
+        }
+    }
 }
 
 
+
+
+void BattleScene::spawnRandomDrop() {
+    int randType = QRandomGenerator::global()->bounded(7); // 0~6
+    DropType type = static_cast<DropType>(randType);
+    QString img = ":/Items/box.png"; // 临时用默认图
+    DropItem* drop = new DropItem(type, img);
+    drop->setPos(QPointF(100 + rand() % 1000, 0)); // 随机 x 轴顶部掉落
+    addItem(drop);
+    drops.push_back(drop);
+}
 

@@ -7,8 +7,21 @@ qt_programming_2024_autogen/timestamp: \
 	D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	D:/GitHub\ Files/qt-programming-2025/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/qt_programming_2024_autogen/moc_predefs.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Armor.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/ArmorFactory.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/ArmorType.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Armors/HeavyArmor.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Armors/LightArmor.h \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.cpp \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Consumable.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/ConsumableFactory.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/ConsumableType.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Consumables/Adrenaline.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Consumables/Bandage.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Consumables/Medkit.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/DropItem.cpp \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/DropItem.h \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Item.cpp \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Item.h \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Maps/Battlefield.cpp \
@@ -17,6 +30,14 @@ qt_programming_2024_autogen/timestamp: \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Maps/Map.h \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Platform.cpp \
 	D:/GitHub\ Files/qt-programming-2025/src/Items/Platform.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapon.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/WeaponFactory.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/WeaponType.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Ball.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Fist.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Knife.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Rifle.h \
+	D:/GitHub\ Files/qt-programming-2025/src/Items/Weapons/Sniper.h \
 	D:/GitHub\ Files/qt-programming-2025/src/MyGame.cpp \
 	D:/GitHub\ Files/qt-programming-2025/src/MyGame.h \
 	D:/GitHub\ Files/qt-programming-2025/src/Scenes/BattleScene.cpp \

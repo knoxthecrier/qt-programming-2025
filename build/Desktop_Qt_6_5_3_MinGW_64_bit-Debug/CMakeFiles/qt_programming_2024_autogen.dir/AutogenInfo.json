@@ -225,9 +225,81 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Armor.h",
+			"MU",
+			"7O23G427QC/moc_Armor.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/ArmorFactory.h",
+			"MU",
+			"7O23G427QC/moc_ArmorFactory.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/ArmorType.h",
+			"MU",
+			"7O23G427QC/moc_ArmorType.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Armors/HeavyArmor.h",
+			"MU",
+			"XAWFG2TZKF/moc_HeavyArmor.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Armors/LightArmor.h",
+			"MU",
+			"XAWFG2TZKF/moc_LightArmor.cpp",
+			null
+		],
+		[
 			"D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.h",
 			"MU",
 			"KRBJEFP6ZJ/moc_SimpleCharacter.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Consumable.h",
+			"MU",
+			"7O23G427QC/moc_Consumable.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/ConsumableFactory.h",
+			"MU",
+			"7O23G427QC/moc_ConsumableFactory.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/ConsumableType.h",
+			"MU",
+			"7O23G427QC/moc_ConsumableType.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Consumables/Adrenaline.h",
+			"MU",
+			"QR3OC634XX/moc_Adrenaline.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Consumables/Bandage.h",
+			"MU",
+			"QR3OC634XX/moc_Bandage.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Consumables/Medkit.h",
+			"MU",
+			"QR3OC634XX/moc_Medkit.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/DropItem.h",
+			"MU",
+			"7O23G427QC/moc_DropItem.cpp",
 			null
 		],
 		[
@@ -252,6 +324,54 @@
 			"D:/GitHub Files/qt-programming-2025/src/Items/Platform.h",
 			"MU",
 			"7O23G427QC/moc_Platform.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapon.h",
+			"MU",
+			"7O23G427QC/moc_Weapon.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/WeaponFactory.h",
+			"MU",
+			"7O23G427QC/moc_WeaponFactory.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/WeaponType.h",
+			"MU",
+			"7O23G427QC/moc_WeaponType.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapons/Ball.h",
+			"MU",
+			"Z3UREFIW6B/moc_Ball.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapons/Fist.h",
+			"MU",
+			"Z3UREFIW6B/moc_Fist.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapons/Knife.h",
+			"MU",
+			"Z3UREFIW6B/moc_Knife.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapons/Rifle.h",
+			"MU",
+			"Z3UREFIW6B/moc_Rifle.cpp",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/Weapons/Sniper.h",
+			"MU",
+			"Z3UREFIW6B/moc_Sniper.cpp",
 			null
 		],
 		[
@@ -343,6 +463,11 @@
 	[
 		[
 			"D:/GitHub Files/qt-programming-2025/src/Items/Characters/SimpleCharacter.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/GitHub Files/qt-programming-2025/src/Items/DropItem.cpp",
 			"MU",
 			null
 		],

@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "../Items/Maps/Map.h"
 #include "../Items/Characters/SimpleCharacter.h"
+#include "../Items/DropItem.h"
 #include <QGraphicsScene>
 class BattleScene : public Scene {
     Q_OBJECT
@@ -15,7 +16,7 @@ public:
     void processInput() override;
     void processMovement() override;
     void processPicking() override;
-
+    void spawnRandomDrop();
     void createPlatforms();  // 用于创建平台
 protected slots:
     void update() override;
@@ -31,6 +32,8 @@ private:
     Platform* platform1;
     Platform* platform2;
     Platform* platform3;
+    QList<DropItem*> drops;  // 存储场上的所有掉落物
+
 };
 
 #endif // BATTLESCENE_H

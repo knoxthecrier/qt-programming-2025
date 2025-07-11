@@ -182,31 +182,46 @@ void SimpleCharacter::processInput() {
     lastPickDown = pickDown;
 }
 
-void SimpleCharacter::setWeapon(WeaponType type, const QString& pixmapPath) {
-    currentWeapon = type;
+void SimpleCharacter::setWeapon(Weapon* weapon) {
+    if (currentWeapon && currentWeapon != weapon) {
+        delete currentWeapon;  // 删除之前的武器
+    }
 
-    if (type == WeaponType::Fist) {
-        removeWeapon();
+    currentWeapon = weapon;
+
+    // 如果是拳头，不显示额外武器贴图
+    if (!weapon || weapon->getType() == WeaponType::Fist) {
+        if (weaponItem) {
+            delete weaponItem;
+            weaponItem = nullptr;  // 删除武器图像
+        }
         return;
     }
 
-    QPixmap pix(pixmapPath);
+    // 为其他武器更新贴图
+    QPixmap pix = weapon->getPixmap();  // 通过武器类获取图像
     if (!weaponItem) {
         weaponItem = new QGraphicsPixmapItem(pix, this);
         weaponItem->setOffset(10, -20); // 可微调位置
     } else {
         weaponItem->setPixmap(pix);
     }
+
+    // 根据角色朝向调整武器图像朝向（如果需要）
 }
 
-void SimpleCharacter::removeWeapon() {
-    if (weaponItem) {
-        delete weaponItem;
-        weaponItem = nullptr;
-    }
-    currentWeapon = WeaponType::Fist;
-}
-
-WeaponType SimpleCharacter::getWeapon() const {
+Weapon* SimpleCharacter::getWeapon() const {
     return currentWeapon;
+}
+
+void SimpleCharacter::equipArmor(Armor* armor) {
+    // 处理护甲的应用逻辑（如减少伤害、显示护甲图标等）
+}
+
+Armor* SimpleCharacter::getArmor() const {
+    return currentArmor;
+}
+
+void SimpleCharacter::useConsumable(Consumable* consumable) {
+    consumable->applyEffect();  // 调用消耗品的效果（如加血）
 }

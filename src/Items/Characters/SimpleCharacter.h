@@ -1,16 +1,13 @@
 #ifndef SIMPLECHARACTER_H
 #define SIMPLECHARACTER_H
 #include "../Item.h"
+#include "../Weapon.h"
+#include "../Armor.h"
+#include "../Consumable.h"
 #include "../Platform.h"
+#include "../Weapons/Fist.h"
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
-
-enum class WeaponType {
-    Fist,
-    Rifle,
-    Sniper,
-    Ball
-};
 
 class SimpleCharacter : public Item {
 public:
@@ -28,10 +25,12 @@ public:
     void processInput();
     void applyVerticalMovement(qreal deltaTime, qreal floorY);
 
-    // 武器系统
-    void setWeapon(WeaponType type, const QString& pixmapPath = "");
-    void removeWeapon();
-    WeaponType getWeapon() const;
+    // 装备系统
+    void setWeapon(Weapon* weapon);  // 设置武器（通过 Weapon 类）
+    Weapon* getWeapon() const;       // 获取当前武器
+    void equipArmor(Armor* armor);
+    Armor* getArmor()const;
+    void useConsumable(Consumable* consumable);
 
     // 状态查询
     [[nodiscard]] bool isCrouching() const;
@@ -58,7 +57,8 @@ private:
     const qreal jumpVelocity = -1000.0;
 
     // 武器类型
-    WeaponType currentWeapon = WeaponType::Fist;
+    Weapon* currentWeapon = new Fist();  // 默认设置为拳头
+    Armor* currentArmor =nullptr;
 
     void updatePixmap();
 };
