@@ -1,7 +1,12 @@
 #include "SimpleCharacter.h"
+#include "../Platform.h"
 #include <QTransform>
 #include <QPixmap>
-#include "../Platform.h"
+#include <QBrush>
+#include <QPen>
+#include <qtimer.h>
+#include <QTimer>
+#include <QObject>
 SimpleCharacter::SimpleCharacter(const QString& standPath,
                                  const QString& crouchPath,
                                  QGraphicsItem* parent)
@@ -10,7 +15,35 @@ SimpleCharacter::SimpleCharacter(const QString& standPath,
     crouchPixmap(crouchPath) {
     pixmapItem = new QGraphicsPixmapItem(standPixmap, this);
     pixmapItem->setOffset(-standPixmap.width() / 2, -standPixmap.height());
-    pixmapItem->setScale(3.0);
+
+    // 创建血槽背景（底色）
+    healthBarBackground = new QGraphicsRectItem(-40, -160, 100, 10, this);  // 假设初始血槽长度为100
+    healthBarBackground->setBrush(QBrush(Qt::gray));  // 设置底色为灰色
+
+    // 创建血条（显示实际生命值）
+    healthBar = new QGraphicsRectItem(-40, -160, 100, 10, this);  // 初始血条长度为100
+    healthBar->setBrush(QBrush(Qt::green));  // 设置血条的初始颜色为绿色
+    healthBar->setPos(healthBarBackground->pos());  // 跟着背景走
+    healthBar->setZValue(1);  // 确保血条在角色之上
+
+    // 设置定时器，用于恢复血条颜色
+    colorChangeTimer = new QTimer(this);
+    connect(colorChangeTimer, &QTimer::timeout, this, &SimpleCharacter::resetHealthBarColor);
+
+    // 创建半透明遮罩图层
+    overlayEffect = new QGraphicsRectItem(this);
+    overlayEffect->setRect(pixmapItem->boundingRect());  // 大小跟角色图像一样
+    overlayEffect->setBrush(QBrush(QColor(255, 0, 0, 100)));  // 默认红色、半透明
+    overlayEffect->setPen(Qt::NoPen);  // 没有边框
+    overlayEffect->setZValue(10);  // 层级高于贴图
+    overlayEffect->setVisible(false);  // 初始隐藏
+
+    // 创建定时器用于恢复透明
+    overlayTimer = new QTimer(this);
+    overlayTimer->setSingleShot(true);  // 一次性的
+    connect(overlayTimer, &QTimer::timeout, this, [this]() {
+        if (overlayEffect) overlayEffect->setVisible(false);
+    });
 }
 
 void SimpleCharacter::setLeftDown(bool down) {
@@ -33,9 +66,13 @@ void SimpleCharacter::setCrouchAndPick(bool down) {
         crouching = down;
         updatePixmap();
     }
-    // 拾取检测只在按下的“瞬间”触发
-    picking = (!lastPickDown && down);
-    lastPickDown = down;
+
+    if (down && !lastPickDown) {
+        picking = true;  // 激活拾取逻辑
+        emit requestPickUp(this);  // 发出拾取请求信号
+    }
+
+    lastPickDown = down;  // 更新下蹲键状态
 }
 
 void SimpleCharacter::updatePixmap() {
@@ -43,8 +80,12 @@ void SimpleCharacter::updatePixmap() {
     applyTerrainEffect();  // 处理根据角色高度设置的地形效果
     if (isInvisible) {
         pixmapItem->setOpacity(0.0);  // 隐身时设置透明度为0
+        healthBarBackground->setOpacity(0.0);
+        healthBar->setOpacity(0.0);
     } else {
         pixmapItem->setOpacity(1.0);  // 恢复可见
+        healthBarBackground->setOpacity(1.0);
+        healthBar->setOpacity(1.0);
         pixmapItem->setPixmap(crouching ? crouchPixmap : standPixmap);
     }
 }
@@ -254,3 +295,85 @@ void SimpleCharacter::applyTerrainEffect() {
         isInvisible = false;  // 恢复可见
     }
 }
+
+
+void SimpleCharacter::takeDamage(int damage) {
+    int previousHealth = health;  // 记录受伤前的生命值
+    health -= damage;
+    if (health < 0) health = 0;
+
+    // 如果生命值减少，显示红色
+    if (health < previousHealth) {
+        showOverlayEffect(Qt::red);  // 红色表示受伤
+    }
+
+    updateHealthBar();
+    lastHealth = health;  // 更新 lastHealth
+    qDebug() << "Current Health: " << health;  // 打印当前生命值，方便调试
+}
+
+void SimpleCharacter::heal(int amount) {
+    int previousHealth = health;  // 记录回血前的生命值
+    health += amount;
+    if (health > maxHealth) health = maxHealth;
+
+    // 如果生命值增加，显示蓝色
+    if (health > previousHealth) {
+        showOverlayEffect(Qt::blue);  // 蓝色表示回血
+    }
+
+    updateHealthBar();
+    lastHealth = health;  // 更新 lastHealth
+    qDebug() << "Current Health: " << health;  // 打印当前生命值，方便调试
+}
+
+void SimpleCharacter::updateHealthBar() {
+    if (healthBar) {
+        // 计算血条的长度，比例为当前生命值/最大生命值
+        qreal healthRatio = static_cast<qreal>(health) / static_cast<qreal>(maxHealth);
+        qreal newWidth = 100 * healthRatio;  // 假设血槽背景长度为100
+        healthBar->setRect(0, 0, newWidth, 10);  // 更新血条的宽度
+
+        // 根据生命值变化，更新血条的颜色
+        // 如果生命值减少，血条变红
+        if (health < lastHealth) {
+            healthBar->setBrush(QBrush(Qt::red));  // 血条变红
+            if (!colorChangeTimer->isActive()) {
+                colorChangeTimer->start(500);  // 启动定时器，500ms后恢复为绿色
+            }
+        }
+        // 如果生命值增加，血条变蓝
+        else if (health > lastHealth) {
+            healthBar->setBrush(QBrush(Qt::blue));  // 血条变蓝
+            if (!colorChangeTimer->isActive()) {
+                colorChangeTimer->start(500);  // 启动定时器，500ms后恢复为绿色
+            }
+        }
+        // 如果生命值未变化，恢复为绿色
+        else {
+            healthBar->setBrush(QBrush(Qt::green));  // 血条保持绿色
+        }
+
+        // 更新 lastHealth，用于下一次比较
+        lastHealth = health;
+
+    }
+
+}
+
+void SimpleCharacter::resetHealthBarColor() {
+    healthBar->setBrush(QBrush(Qt::green));  // 恢复为绿色
+    colorChangeTimer->stop();  // 停止定时器
+}
+
+
+void SimpleCharacter::showOverlayEffect(const QColor& color) {
+    if (!overlayEffect) return;
+
+    overlayEffect->setBrush(QBrush(QColor(color.red(), color.green(), color.blue(), 100)));  // 半透明色
+    overlayEffect->setVisible(true);
+    overlayTimer->start(300);  // 显示300ms
+}
+
+
+

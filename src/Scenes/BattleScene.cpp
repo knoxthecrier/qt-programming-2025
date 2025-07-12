@@ -1,11 +1,14 @@
 #include "BattleScene.h"
-#include <QKeyEvent>
 #include "../Items/Maps/Battlefield.h"
 #include "../Items/Platform.h"
 #include "../Items/DropItem.h"
+
+#include <QKeyEvent>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QRandomGenerator>
+const qreal PICKUP_RANGE = 50;  // 拾取范围像素值，可调
+
 BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     setSceneRect(0, 0, 1280, 720);
 
@@ -46,7 +49,10 @@ BattleScene::BattleScene(QObject* parent) : Scene(parent) {
     // 定时器定期调用 spawnRandomDrop()
     QTimer* dropTimer = new QTimer(this);
     connect(dropTimer, &QTimer::timeout, this, &BattleScene::spawnRandomDrop);
-    dropTimer->start(6000);  // 每 6 秒生成一个掉落物
+    dropTimer->start(3000);  // 每 6 秒生成一个掉落物
+
+    connect(player1, &SimpleCharacter::requestPickUp, this, &BattleScene::handlePickUp);
+    connect(player2, &SimpleCharacter::requestPickUp, this, &BattleScene::handlePickUp);
 }
 
 void BattleScene::processInput() {
@@ -163,3 +169,21 @@ void BattleScene::spawnRandomDrop() {
     drops.push_back(drop);
 }
 
+
+
+void BattleScene::handlePickUp(SimpleCharacter* character) {
+    // 获取掉落物列表
+    for (auto* drop : drops) {
+        // 判断角色是否碰撞或距离小于拾取范围
+        if (character->collidesWithItem(drop) || QLineF(character->pos(), drop->pos()).length() < PICKUP_RANGE) {
+            // 触发物品效果
+            drop->applyTo(character);
+
+            // 从场景中移除并删除该物品
+            removeItem(drop);
+            delete drop;
+            drops.removeOne(drop);  // 从掉落物列表中移除该物品
+            break;
+        }
+    }
+}
