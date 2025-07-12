@@ -20,7 +20,7 @@ public:
     void setRightDown(bool down);
     void setCrouchAndPick(bool down);
     void startJump();
-
+    void applyTerrainEffect();
     // 运动状态
     void processInput();
     void applyVerticalMovement(qreal deltaTime, qreal floorY);
@@ -55,6 +55,8 @@ private:
     qreal verticalVelocity = 0.0;
     const qreal gravity = 2000.0;
     const qreal jumpVelocity = -1000.0;
+    int moveSpeed=600;
+    bool isInvisible=false;
 
     // 武器类型
     Weapon* currentWeapon = new Fist();  // 默认设置为拳头

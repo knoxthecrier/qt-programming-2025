@@ -39,7 +39,12 @@ void SimpleCharacter::setCrouchAndPick(bool down) {
 }
 
 void SimpleCharacter::updatePixmap() {
-    if (pixmapItem) {
+    // 每次更新角色位置时，应用地形效果
+    applyTerrainEffect();  // 处理根据角色高度设置的地形效果
+    if (isInvisible) {
+        pixmapItem->setOpacity(0.0);  // 隐身时设置透明度为0
+    } else {
+        pixmapItem->setOpacity(1.0);  // 恢复可见
         pixmapItem->setPixmap(crouching ? crouchPixmap : standPixmap);
     }
 }
@@ -64,8 +69,12 @@ void SimpleCharacter::startJump() {
     }
 }
 void SimpleCharacter::applyVerticalMovement(qreal deltaTime, qreal floorY) {
+    // 打印角色当前的 Y 坐标
+    qDebug() << "Character Height (Y): " << pos().y();
     verticalVelocity += gravity * deltaTime;  // 应用重力加速度
     qreal newY = pos().y() + verticalVelocity * deltaTime;  // 计算新的 Y 坐标
+    // 每次更新角色位置时，应用地形效果
+    applyTerrainEffect();  // 处理根据角色高度设置的地形效果
 
     bool collidedWithPlatform = false;  // 标记是否与平台发生碰撞
 
@@ -84,6 +93,7 @@ void SimpleCharacter::applyVerticalMovement(qreal deltaTime, qreal floorY) {
                 isJumping = false;     // 停止跳跃
                 collidedWithPlatform = true;
                 qDebug() << "Vertical Velocity: " << verticalVelocity;
+
                 break;  // 如果已经碰到平台，跳出循环
             }
         }
@@ -165,7 +175,6 @@ void SimpleCharacter::applyVerticalMovement(qreal deltaTime, qreal floorY) {
 */
 void SimpleCharacter::processInput() {
     velocity = QPointF(0, 0);
-    const int moveSpeed = 300;
 
     if (leftDown && !crouching) {
         velocity.setX(-moveSpeed);
@@ -224,4 +233,24 @@ Armor* SimpleCharacter::getArmor() const {
 
 void SimpleCharacter::useConsumable(Consumable* consumable) {
     consumable->applyEffect();  // 调用消耗品的效果（如加血）
+}
+void SimpleCharacter::applyTerrainEffect() {
+    qreal currentY = pos().y();  // 获取角色的当前 Y 坐标
+
+    if (currentY >360) {
+        // 角色站在冰面上，增加移动速度
+        moveSpeed = 600;  // 假设冰面上的速度是普通速度的两倍
+    } else if (currentY <= 360 && currentY > 160) {
+        // 角色站在草地上，只有下蹲时才隐身
+        moveSpeed = 300;
+        if (isCrouching()) {
+            isInvisible = true;  // 下蹲时隐身
+        } else {
+            isInvisible = false;  // 站立时不隐身
+        }
+    } else if (currentY <= 160) {
+        // 角色站在地面上，没有特殊效果
+        moveSpeed = 300;  // 恢复正常速度
+        isInvisible = false;  // 恢复可见
+    }
 }
